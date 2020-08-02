@@ -20,6 +20,7 @@ configure do
 		"id"	INTEGER,
 		"created_date"	REAL,
 		"content"	TEXT,
+		"username" TEXT,
 		PRIMARY KEY("id" AUTOINCREMENT)
 	)'
 
@@ -48,13 +49,14 @@ end
 
 post '/new' do
 	content = params[:content]
+	username = params[:username]
 
 	if content.length < 1
 		@error = 'Type post text'
 		erb :new
 	end
 
-	@db.execute 'insert into Posts (created_date, content) values (datetime(), ?)', [content]
+	@db.execute 'insert into Posts (created_date, content, username) values (datetime(), ?, ?)', [content, username]
 
 	redirect to '/'
 end
@@ -65,7 +67,7 @@ get '/details/:post_id' do
 	result = @db.execute 'select * from Posts where id = ?', [post_id]
 	@row = result[0]
 
-	@comments = @db.execute 'select * from Comments order by id desc'
+	@comments = @db.execute 'select * from Comments where post_id = ?', [post_id]
 
 	erb :details
 end

@@ -5,7 +5,9 @@
 
 	<p><%= post['content'] %></p>
 	<br>
-	<p><%= post['created_date'] %></p>
+	<p style="font-style: italic;">Автор: <%= post['username'] %></p>
+	<br>
+	<p style="color: #cdcdd6; font-size: 75%;"><%= post['created_date'] %></p>
 	<br>
 	<a href="/details/<%= post['id'] %>">Comment</a>
 	<hr>
