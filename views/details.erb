@@ -5,6 +5,15 @@
 	<p><%= @row['created_data'] %></p>
 	<br>
 
+<h4>Комментарии:</h4>
+	<br>
+	<% @comments.each do |comment| %>
+		<p> <%= comment['content'] %> </p>
+		<br>
+		<p> <%= comment['created_date'] %> </p>
+		<hr>
+	<% end %>
+
 	<form action="/details/<%= @row['id'] %>" method="POST"> 
 	  <div class="form-group">
 	    <label for="exampleFormControlTextarea1">Введите комментарий:</label>
