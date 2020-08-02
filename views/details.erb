@@ -4,3 +4,12 @@
 	<br>
 	<p><%= @row['created_data'] %></p>
 	<br>
+
+	<form action="/details/<%= @row['id'] %>" method="POST"> 
+	  <div class="form-group">
+	    <label for="exampleFormControlTextarea1">Введите комментарий:</label>
+	    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+	  </div>
+
+	  <button type="submit" class="btn btn-dark">Отправить</button>
+	</form>
