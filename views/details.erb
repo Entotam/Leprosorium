@@ -1,12 +1,15 @@
 <h3>Post details:</h3>
 
+<br>
+<p><%= @p.content %></p>
+<br>
 <h4>Комментарии:</h4>
 
-	<form action="/details/<%= @row['id'] %>" method="POST"> 
-	  <div class="form-group">
-	    <label for="exampleFormControlTextarea1">Введите комментарий:</label>
-	    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-	  </div>
+<form action="/details/:id" method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Введите комментарий:</label>
+    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+  </div>
 
-	  <button type="submit" class="btn btn-dark">Отправить</button>
-	</form>
+  <button type="submit" class="btn btn-dark">Отправить</button>
+</form>

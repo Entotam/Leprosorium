@@ -38,53 +38,16 @@ post '/new' do
 	end
 
 	erb :new
-
-	# content = params[:content]
-	# username = params[:username]
-
-	# if content.length < 1
-	# 	@error = 'Type post text'
-	# 	erb :new
-	# end
-
-	# @db.execute 'insert into Posts (created_date, content, username) values (datetime(), ?, ?)', [content, username]
-
-	# redirect to '/'
 end
 
-# def init_db
-# 	@db = SQLite3::Database.new 'leprosorium.db'
-# 	@db.results_as_hash = true
-# 	return @db	
-# end
+get '/details/:id' do
+	@p = Post.find(params[:id])
+	erb :details
+end
 
-# before do
-# 	init_db
-# end
-
-# configure do
-# 	init_db
-# 	@db.execute 'CREATE TABLE IF NOT EXISTS "Posts" (
-# 		"id"	INTEGER,
-# 		"created_date"	REAL,
-# 		"content"	TEXT,
-# 		"username" TEXT,
-# 		PRIMARY KEY("id" AUTOINCREMENT)
-# 	)'
-
-# 	@db.execute 'CREATE TABLE IF NOT EXISTS "Comments" (
-# 		"id"	INTEGER,
-# 		"created_date"	REAL,
-# 		"content"	TEXT,
-# 		"post_id" INTEGER,
-# 		PRIMARY KEY("id" AUTOINCREMENT)
-# 	)'	
-# end
-
-# get '/posts' do
-# 	erb :posts
-# end
-
+post '/details/:id' do
+	erb :details
+end
 
 # get '/details/:post_id' do
 # 	post_id = params[:post_id]
