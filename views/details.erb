@@ -1,18 +1,6 @@
 <h3>Post details:</h3>
 
-	<p><%= @row['content'] %></p>
-	<br>
-	<p><%= @row['created_data'] %></p>
-	<br>
-
 <h4>Комментарии:</h4>
-	<br>
-	<% @comments.each do |comment| %>
-		<p> <%= comment['content'] %> </p>
-		<br>
-		<p style="color: #cdcdd6; font-size: 75%;">Дата создания: <%= comment['created_date'] %> </p>
-		<hr>
-	<% end %>
 
 	<form action="/details/<%= @row['id'] %>" method="POST"> 
 	  <div class="form-group">

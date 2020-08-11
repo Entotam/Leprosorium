@@ -1,15 +1,8 @@
 <h1>Latest posts</h1>
 <br>
-
-<% @result.each do |post| %>
-
-	<p><%= post['content'] %></p>
-	<br>
-	<p style="font-style: italic;">Автор: <%= post['username'] %></p>
-	<br>
-	<p style="color: #cdcdd6; font-size: 75%;"><%= post['created_date'] %></p>
-	<br>
-	<a href="/details/<%= post['id'] %>">Comment</a>
-	<hr>
-	
+<% @posts.each do |post| %>
+<p><%= post.content %></p>
+<p style="font-style: italic;" ><%= post.username %></p>
+<p style="color: grey; font-size: 70%" ><%= post.created_at %></p>
 <% end %>
+<hr>

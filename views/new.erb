@@ -2,12 +2,12 @@
 
 <form action="/new" method="POST">
   <div class="form-group">
-    <label for="username">Введите ваше имя: </label>
-    <input name="username" type="text" class="form-control" placeholder="Имя">
+    <label for="post[username]">Введите ваше имя: </label>
+    <input name="post[username]" type="text" class="form-control" placeholder="Имя" value="<%= @p.username %>">
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Создайте новый пост</label>
-    <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Текст вашего поста"></textarea>
+    <textarea name="post[content]" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Текст вашего поста"><%= @p.content %></textarea>
   </div>
 
   <button type="submit" class="btn btn-dark">Отправить</button>
